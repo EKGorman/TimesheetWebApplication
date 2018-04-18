@@ -1,7 +1,9 @@
 <?php
+	session_start();
 	include '../config.php';
+	include '../redirect.php';
 
-	$employee_id = 74666395;
+	$employee_id = $_SESSION['updateEmployee'];
 
 	$stmt = $conn -> prepare("SELECT FName, LName, PhoneNum, Email, StreetAddress, AddressLine2, City, State, ZipCode, PayScale, AccessLevel, CompanyID FROM employee WHERE EmployeeID = ?");
 	$stmt -> bind_param('i', $employee_id);
@@ -40,7 +42,7 @@
 
     if($stmt -> execute() === TRUE)
 		{
-			echo "Recorded Successfully";
+			redirect("updateEmployee.php");
 		}
 		else
 		{
