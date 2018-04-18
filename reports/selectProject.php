@@ -3,32 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Reports</title>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
-=======
-<link rel="stylesheet" type="text/css" href="report.css" media="all">
->>>>>>> 746c17bbbb9b585a7405f158b3633db1b1100344
-=======
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
->>>>>>> parent of 746c17b... reports v2
-=======
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
->>>>>>> parent of 746c17b... reports v2
 </head>
 
 <body>
 
 <h1>Project Reports</h1>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 746c17b... reports v2
-=======
->>>>>>> parent of 746c17b... reports v2
 <table>
   <thead>
     <tr>
@@ -144,68 +125,6 @@
       <td>Footer 4</td>
     </tr>
   </tfoot>
-<<<<<<< HEAD
-<<<<<<< HEAD
 </table>
-=======
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Names...">
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:40%;">Project ID</th>
-    <th style="width:60%;">Active</th>
-    <th style="width:40%;"></th>
-
-  </tr>
-  <tr>
-    <td>ID1</td>
-    <td>Name1</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-
-  </tr>
-  <tr>
-    <td>ID2</td>
-    <td>Name2</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-  <tr>
-    <td>ID3</td>
-    <td>Name3</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-  <tr>
-   <td>ID4</td>
-    <td>Name4</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-</table>
-
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
->>>>>>> 746c17bbbb9b585a7405f158b3633db1b1100344
-=======
-</table>
->>>>>>> parent of 746c17b... reports v2
-=======
-</table>
->>>>>>> parent of 746c17b... reports v2
 </body>
 </html>
