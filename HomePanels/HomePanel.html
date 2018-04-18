@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <link  rel="stylesheet" href="Style.css"/>  
+  <script type="text/javascript" src="Syrup.js"></script>
+  
+  <title>WFD TimeSheet App</title>
+  
+  <?php
+  session_start();
+  ?>
+  
+</head>
+
+<body>
+	<?php	$_SESSION["AccessLevel"] = "0";	?>
+	
+	<p><?php include 'Magic.php';?></p>
+	
+	
+	<div class="container">
+ 		<div class="major" id="big">
+ 			<p id="bigP">Timesheet</p>
+    		<a href="TimeEditor/index5.html" class="link"></a>
+   		</div>
+    
+    	<div class="major" id="tall">
+    		<p id="tallP">View Projects</p>
+   	 		<a href="addProject/addProject.php" class="link"></a>
+    	</div>
+    	
+   		<div class="major" id="left">
+    		<p id="leftP">Export Time</p>
+    	<!--	<a href="addProject/form.html" class="link"></a>	-->
+    	</div>
+    
+    	<div class="major" id="right">
+    		<p id="rightP">. . .</p>
+    	<!--	<a href="addProject/form.html" class="link"></a>	-->
+    	</div>    	
+    </div>	
+</body>
+</html>
