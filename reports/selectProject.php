@@ -3,25 +3,20 @@
 <head>
 <meta charset="utf-8">
 <title>Reports</title>
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
-=======
-<link rel="stylesheet" type="text/css" href="report.css" media="all">
->>>>>>> 746c17bbbb9b585a7405f158b3633db1b1100344
 </head>
 
 <body>
 
-<h1>Company Reports</h1>
+<h1>Project Reports</h1>
 
-<<<<<<< HEAD
 <table>
   <thead>
     <tr>
-      <td><b>Company ID</b></td>
-      <td><b>Company Name</b></td>
-      <td><b>Project</b></td>
-      <td><b>Active</b></td>
+      <td><b>Project ID</b></td>
+      <td><b>Manager ID</b></td>
+      <td><b>First Name</b></td>
+      <td><b>Last Name</b></td>
     </tr>
   </thead>
   <tbody>
@@ -131,59 +126,5 @@
     </tr>
   </tfoot>
 </table>
-=======
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Names...">
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:40%;">Company ID</th>
-    <th style="width:60%;">Company Name</th>
-    <th style="width:40%;"></th>
-
-  </tr>
-  <tr>
-    <td>ID1</td>
-    <td>Name1</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-
-  </tr>
-  <tr>
-    <td>ID2</td>
-    <td>Name2</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-  <tr>
-    <td>ID3</td>
-    <td>Name3</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-  <tr>
-   <td>ID4</td>
-    <td>Name4</td>
-    <td><button id="export-btn" class="btn btn-primary">Update</button></td>
-  </tr>
-</table>
-
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
->>>>>>> 746c17bbbb9b585a7405f158b3633db1b1100344
 </body>
 </html>
