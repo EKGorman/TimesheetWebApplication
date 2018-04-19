@@ -1,5 +1,7 @@
 <?php
+  session_start();
   include '../config.php';
+  include '../redirect.php';
 
 	$project_id = 3458;
 
@@ -27,7 +29,7 @@
 
     if($stmt -> execute() === TRUE)
 		{
-			echo "Recorded Successfully";
+			redirect("updateProject.php");
 		}
 		else
 		{

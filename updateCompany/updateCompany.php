@@ -1,7 +1,9 @@
 <?php
+	session_start();
 	include '../config.php';
+	include '../redirect.php';
 
-	$company_id = 3415;
+	$company_id = $_SESSION['updateCompany'];
 
 	$stmt = $conn -> prepare("SELECT CName, StreetAddress, AddressLine2, City, State, ZipCode, PhoneNum FROM company WHERE CompanyID = ?");
 	$stmt -> bind_param('i', $company_id);
@@ -35,7 +37,7 @@
 
     if($stmt -> execute() === TRUE)
 		{
-			echo "Recorded Successfully";
+			redirect("updateCompany.php");
 		}
 		else
 		{
