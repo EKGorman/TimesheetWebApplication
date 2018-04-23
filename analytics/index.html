@@ -18,7 +18,7 @@
    
  <div id="div1">
   <h1>Project Analytics</h1>
- <button onclick="myFunction()">Employee Analytics</button>
+ <button onclick="myFunction()">Employee Analytics</button><button onclick="myFunction3()">Blank Analytics</button>
   
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
@@ -27,7 +27,7 @@
         <th>Manager</th>
         <th>Total Cost</th>
         <th>Total Time Spent</th>
-        <th>Employee with most hours</th>
+        <th>Employee with most hrs</th>
       </tr>
     </thead>
     <tbody>
@@ -80,7 +80,7 @@
 
 <div id="div2" style="display: none;">
   <h1>Employee Analytics</h1>
-  <button onclick="myFunction2()">Project Analytics</button>
+  <button onclick="myFunction2()">Project Analytics</button><button onclick="myFunction3()">Blank Analytics</button>
   
   
   <table id="keywords" cellspacing="0" cellpadding="0">
@@ -89,7 +89,71 @@
         <th>Employee ID</th>
         <th>Position</th>
         <th>Start-Date</th>
-        <th>Salary</th>
+        <th>Current Salary</th>
+        <th>Avg. Hrs/Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lalign">silly tshirts</td>
+        <td>6,000</td>
+        <td>110</td>
+        <td>1.8%</td>
+        <td>22.2</td>
+      </tr>
+      <tr>
+        <td class="lalign">desktop workspace photos</td>
+        <td>2,200</td>
+        <td>500</td>
+        <td>22%</td>
+        <td>8.9</td>
+      </tr>
+      <tr>
+        <td class="lalign">arrested development quotes</td>
+        <td>13,500</td>
+        <td>900</td>
+        <td>6.7%</td>
+        <td>12.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">popular web series</td>
+        <td>8,700</td>
+        <td>350</td>
+        <td>4%</td>
+        <td>7.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">2013 webapps</td>
+        <td>9,900</td>
+        <td>460</td>
+        <td>4.6%</td>
+        <td>11.5</td>
+      </tr>
+      <tr>
+        <td class="lalign">ring bananaphone</td>
+        <td>10,500</td>
+        <td>748</td>
+        <td>7.1%</td>
+        <td>17.3</td>
+      </tr>
+      
+    </tbody>
+  </table>
+ </div> 
+
+
+ <div id="div3" style="display: none;">
+  <h1>Blank Analytics</h1>
+  <button onclick="myFunction2()">Project Analytics</button><button onclick="myFunction()">Employee Analytics</button>
+  
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Position</th>
+        <th>Start-Date</th>
+        <th>Current Salary</th>
         <th>Avg. Hrs/Week</th>
       </tr>
     </thead>
@@ -145,10 +209,17 @@
 function myFunction() {
     document.getElementById("div2").style.display = "";  //Show the table
     document.getElementById("div1").style.display = "none";
+    document.getElementById("div3").style.display = "none";
 }
 function myFunction2() {
   document.getElementById("div1").style.display = "";  //Show the table
     document.getElementById("div2").style.display = "none";
+    document.getElementById("div3").style.display = "none";
+}
+function myFunction3() {
+    document.getElementById("div3").style.display = "";  //Show the table
+    document.getElementById("div2").style.display = "none";
+    document.getElementById("div1").style.display = "none";
 }
 </script>
 </main>
