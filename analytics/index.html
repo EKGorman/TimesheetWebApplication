@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://d15dxvojnvxp1x.cloudfront.net/assets/favicon.ico">
+  <link rel="icon" href="http://d15dxvojnvxp1x.cloudfront.net/assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+</head>
+
+<body>
+  <main id="wrapper">
+   
+ <div id="div1">
+  <h1>Project Analytics</h1>
+ <button onclick="myFunction()">Employee Analytics</button>
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Manager</th>
+        <th>Total Cost</th>
+        <th>Total Time Spent</th>
+        <th>Employee with most hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lalign">silly tshirts</td>
+        <td>6,000</td>
+        <td>110</td>
+        <td>1.8%</td>
+        <td>22.2</td>
+      </tr>
+      <tr>
+        <td class="lalign">desktop workspace photos</td>
+        <td>2,200</td>
+        <td>500</td>
+        <td>22%</td>
+        <td>8.9</td>
+      </tr>
+      <tr>
+        <td class="lalign">arrested development quotes</td>
+        <td>13,500</td>
+        <td>900</td>
+        <td>6.7%</td>
+        <td>12.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">popular web series</td>
+        <td>8,700</td>
+        <td>350</td>
+        <td>4%</td>
+        <td>7.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">2013 webapps</td>
+        <td>9,900</td>
+        <td>460</td>
+        <td>4.6%</td>
+        <td>11.5</td>
+      </tr>
+      <tr>
+        <td class="lalign">ring bananaphone</td>
+        <td>10,500</td>
+        <td>748</td>
+        <td>7.1%</td>
+        <td>17.3</td>
+      </tr>
+      
+    </tbody>
+  </table>
+ </div> 
+
+<div id="div2" style="display: none;">
+  <h1>Employee Analytics</h1>
+  <button onclick="myFunction2()">Project Analytics</button>
+  
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Manager</th>
+        <th>Total Cost</th>
+        <th>Total Time Spent</th>
+        <th>Employee with most hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lalign">silly tshirts</td>
+        <td>6,000</td>
+        <td>110</td>
+        <td>1.8%</td>
+        <td>22.2</td>
+      </tr>
+      <tr>
+        <td class="lalign">desktop workspace photos</td>
+        <td>2,200</td>
+        <td>500</td>
+        <td>22%</td>
+        <td>8.9</td>
+      </tr>
+      <tr>
+        <td class="lalign">arrested development quotes</td>
+        <td>13,500</td>
+        <td>900</td>
+        <td>6.7%</td>
+        <td>12.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">popular web series</td>
+        <td>8,700</td>
+        <td>350</td>
+        <td>4%</td>
+        <td>7.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">2013 webapps</td>
+        <td>9,900</td>
+        <td>460</td>
+        <td>4.6%</td>
+        <td>11.5</td>
+      </tr>
+      <tr>
+        <td class="lalign">ring bananaphone</td>
+        <td>10,500</td>
+        <td>748</td>
+        <td>7.1%</td>
+        <td>17.3</td>
+      </tr>
+      
+    </tbody>
+  </table>
+ </div> 
+
+ <script>
+function myFunction() {
+    document.getElementById("div2").style.display = "";  //Show the table
+    document.getElementById("div1").style.display = "none";
+}
+function myFunction2() {
+  document.getElementById("div1").style.display = "";  //Show the table
+    document.getElementById("div2").style.display = "none";
+}
+</script>
+</main>
+
+
+
+
+
+
+
+
+</body>
+</html>
