@@ -1,0 +1,323 @@
+body {
+	background-image: url("images/B5.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+}
+
+h2{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 50px;
+    position: absolute;
+    font: Helvetica;
+    font-weight: lighter;
+}
+
+/* Big Starts Here */
+
+#big{
+	height: 355px;
+	width: 800px;
+	
+	float: left;
+	margin-left: 50px;
+	margin-top: 85px;
+	
+	
+	background-image: url("images/pic07.jpg");
+	background-size:cover;
+	background-repeat: repeat;	
+		
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#bigP{
+	font-size: 40px;
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#big:hover{
+	transform: scale(1.007);	
+}
+
+
+
+/* Big Ends Here */
+/* Tall Starts Here */
+
+#tall{
+	height: 355px;
+	width: 275px;
+	
+	float: right;
+	position: absolute;
+	left: 870px;
+	top: 93px;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	color: #BBD6CD;
+	
+	box-shadow: 0 0px 0px 0 #BFBFBF;
+	
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#tallP{
+	font-size: 24px;
+	margin-top: 304px;
+	margin-left: 75px;
+	position: fixed;
+}
+
+#tall:hover{
+	transform: scale(1.01);
+}
+
+/* Tall Ends Here */
+/* Left Starts Here */
+
+#left{
+	width: 169px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:56px;
+	top: 460px;
+	/*margin-top: 2px;
+	margin-left: 175px;*/
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#leftP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 5px;
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#left:hover{
+	transform: scale(1.015);
+}
+
+/* Left Ends Here */
+/* Right Starts Here */
+
+#right{
+	width: 173px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:237px;
+	top: 460px;
+	
+	
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#rightP{
+	font-size: 17px;
+	margin-top: 50px;
+	margin-left: 5px; 
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#right:hover{
+	transform: scale(1.015);}
+
+/* Right Ends Here */
+/* aLeft Starts Here */
+
+#aleft{
+	width: 169px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left: 418px;
+	top: 460px;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#aleftP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 5px;
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#aleft:hover{
+	transform: scale(1.025);
+}
+
+/* aLeft Ends Here */
+/* aRight Starts Here */
+
+#aright{
+	width: 169px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:594px;
+	top: 460px;
+	
+	
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#arightP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 5px; 
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#aright:hover{
+	transform: scale(1.025);}
+	
+/* aRight Ends Here */
+/* bLeft Starts Here */
+#bleft{
+	width: 169px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left: 770px;
+	top: 460px;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#bleftP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 5px;
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#bleft:hover{
+	transform: scale(1.025);
+}
+
+/* bLeft Ends Here */
+/* bRight Starts Here */
+
+#bright{
+	width: 196px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:946px;
+	top: 460px;
+	
+	
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#brightP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 5px; 
+	color: #BBD6CD;
+	position: fixed;
+}
+
+#bright:hover{
+	transform: scale(1.025);}
+	
+/* bRight Ends Here */
+
+p{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+}
+
+a.link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+.timeEditor{
+	overflow: hidden;
+    width: 100%;
+    height: 100%;
+    zoom: 0.6;
+}
+
+#frame { 
+	zoom: 0.75; 
+	-moz-transform: scale(0.75); 
+	-moz-transform-origin: 0 0; 
+	}

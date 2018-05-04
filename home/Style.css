@@ -1,0 +1,168 @@
+body {
+	background-image: url("images/B5.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+}
+
+h2{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 50px;
+    position: absolute;
+    font: Helvetica;
+    font-weight: lighter;
+}
+
+/* Big Starts Here */
+
+#big{
+	height: 355px;
+	width: 800px;
+	
+	float: left;
+	margin-left: 50px;
+	margin-top: 85px;
+	
+	
+	background-image: url("images/pic07.jpg");
+	background-size:cover;
+	background-repeat: repeat;	
+		
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#bigP{
+	font-size: 40px;
+	color: #BBD6CD;
+}
+
+#big:hover{
+	transform: scale(1.007);	
+}
+
+
+
+/* Big Ends Here */
+/* Tall Starts Here */
+
+#tall{
+	height: 475px;
+	width: 275px;
+	
+	float: right;
+	position: absolute;
+	left: 870px;
+	top: 93px;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	color: #BBD6CD;
+	
+	box-shadow: 0 0px 0px 0 #BFBFBF;
+	
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#tallP{
+	font-size: 24px;
+	margin-top: 10px;
+	margin-left: 75px;
+}
+
+#tall:hover{
+	transform: scale(1.007);
+}
+
+/* Tall Ends Here */
+/* Left Starts Here */
+
+#left{
+	width: 395px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:57px;
+	top: 460px;
+	/*margin-top: 2px;
+	margin-left: 175px;*/
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#leftP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#left:hover{
+	transform: scale(1.007);
+}
+
+/* Left Ends Here */
+/* Right Starts Here */
+
+#right{
+	width: 395px;
+	height: 106px;
+	
+	float: left;
+	position: absolute;
+	left:463px;
+	top: 460px;
+	
+	
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#rightP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 15px; 
+	color: #BBD6CD;
+}
+
+#right:hover{
+	transform: scale(1.007);}
+
+/* Right Ends Here */
+
+p{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+}
+
+a.link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+

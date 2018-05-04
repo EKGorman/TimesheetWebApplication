@@ -154,7 +154,7 @@
               <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
               <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
               <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
+              <!--<td><span class="table-remove glyphicon glyphicon-remove"></span></td>-->
             </tr>
           </table>
           <button id="export-btn" class="btn btn-primary" type="submit" name="submit" style="float: right;">Submit Timesheet</button>

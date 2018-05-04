@@ -1,0 +1,304 @@
+body {
+	background-image: url("images/B5.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	overflow: hidden;
+}
+
+h2{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 50px;
+    position: absolute;
+    font: Helvetica;
+    font-weight: lighter;
+}
+
+/* Big Starts Here */
+
+#big{
+	height: 355px;
+	width: 800px;
+	
+	float: left;
+	margin-left: 50px;
+	margin-top: 85px;
+	
+	
+	background-image: url("images/pic07.jpg");
+	background-size:cover;
+	background-repeat: repeat;	
+		
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#bigP{
+	font-size: 40px;
+	color: #BBD6CD;
+}
+
+#big:hover{
+	transform: scale(1.007);	
+}
+
+/* Big Ends Here */
+/* Tall Starts Here */
+
+#tall{
+	height: 355px;
+	width: 275px;
+	
+	float: right;
+	position: absolute;
+	left: 870px;
+	top: 93px;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	color: #BBD6CD;
+	
+	box-shadow: 0 0px 0px 0 #BFBFBF;
+	
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#tallP{
+	font-size: 24px;
+	margin-top: 304px;
+	margin-left: 10px;
+}
+
+#tall:hover{
+	transform: scale(1.01);
+}
+
+/* Tall Ends Here */
+/* Left Starts Here */
+
+#left{
+	width: 280px;
+	height: 106px;
+	
+	float: left;
+	margin-left: 50px;
+	box-sizing: border-box;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#leftP{
+	font-size: 20px;
+	margin-top: 50px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#left:hover{
+	transform: scale(1.015);
+}
+
+/* Left Ends Here */
+/* Right1 Starts Here */
+
+#sub1{
+	width: 163px;
+	height: 106px;
+	
+	float: left;
+	box-sizing: border-box;
+	
+    background-image: url("images/pic02.jpg");
+	background-size: cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#subP1{
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#sub1:hover{
+	transform: scale(1.015);}
+
+/* Right1 Ends Here */
+/* Right2 Starts Here */
+#sub2{
+	width: 163px;
+	height: 106px;
+	
+	float: left;
+	box-sizing: border-box;	
+	
+    background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#subP2{
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#sub2:hover{
+	transform: scale(1.015);}
+
+/* Right2 Ends Here */
+/* Right3 Starts Here */
+#sub3{
+	width: 163px;
+	height: 106px;
+	
+	float: left;
+	box-sizing: border-box;	
+	
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#subP3{
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#sub3:hover{
+	transform: scale(1.015);}
+/* Right3 Ends Here */
+
+
+/* aLeft Starts Here */
+
+#sub4{
+	width: 163px;
+	height: 106px;
+	
+	float: left;
+	box-sizing: border-box;
+	
+	background-image: url("images/pic05.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0 0px 0px #888888;
+	border-style: inset;
+   	border-width: 5px;
+   	border-color: #cccccc;
+   	border-radius: 5px;  
+}
+
+#subP4{
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#sub4:hover{
+	transform: scale(1.025);
+}
+
+/* aLeft Ends Here */
+/* aRight Starts Here */
+
+#sub5{
+	width: 163px;
+	height: 106px;
+	
+	float: left;
+	box-sizing: border-box;
+		
+    background-image: url("images/pic02.jpg");
+	background-size:cover;
+	background-repeat: repeat;
+	
+	box-shadow: 0 0px 0px 0 #888888;
+	border-style: inset;
+   	border-width: 5px;
+ 	border-color: #cccccc;
+   	border-radius: 5px;
+}
+
+#subP5{
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	color: #BBD6CD;
+}
+
+#sub5:hover{
+	transform: scale(1.025);}
+	
+/* aRight Starts Here */
+
+p{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+}
+
+.link {
+    
+    height: 70%;
+    width: 100%;
+    text-decoration: none;
+    position: absolute;
+    
+}
+
+.timeEditor{
+	overflow: hidden;
+    width: 100%;
+    height: 100%;
+    zoom: 0.6;
+}
+
+#taskWindow { 
+	height: 355px;
+	width: 800px;
+	left: 20px;
+	bottom 20px;
+
+	}
+	
+
+
