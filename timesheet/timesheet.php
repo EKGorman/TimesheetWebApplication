@@ -79,7 +79,6 @@
     <meta charset="UTF-8">
     <title>timesheetApp</title>
 
-    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
     <link rel="stylesheet" href="css/style.css">
 

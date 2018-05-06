@@ -81,8 +81,8 @@
 						<div>
 							<select class="element select medium" name="projectActivity" required>
 								<option value="" selected="selected"></option>
-								<option value="1" >Active</option>
-								<option value="2" >Inactive</option>
+								<option value="0" >Active</option>
+								<option value="1" >Inactive</option>
 							</select>
 						</div> <p class="guidelines" id="guide_1"><small>requried</small></p>
 					</li>

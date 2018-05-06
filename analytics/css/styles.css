@@ -122,7 +122,10 @@ table
 {
   width: 100%
 }
-
+main{
+  background:#fff;
+  border:1px solid #ccc;
+}
 
 
 
