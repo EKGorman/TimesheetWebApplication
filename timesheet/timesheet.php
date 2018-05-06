@@ -82,8 +82,6 @@
     <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
       h1
@@ -105,7 +103,7 @@
       }
     </style>
 
-    <SCRIPT type="text/javascript">
+    <script type="text/javascript">
 
       function addRow(tableID)
       {
@@ -128,21 +126,14 @@
 
       function deleteRow(aRow)
       {
-        try
+        var tbl = document.getElementById('dataTable')
+        var lastRow = tbl.rows.length;
+        if(lastRow > 2)
         {
-          var tbl = document.getElementById('dataTable')
-          var lastRow = tbl.rows.length;
-          if(lastRow > 2)
-          {
-            tbl.deleteRow(aRow.parentElement.parentElement.rowIndex);
-          }
-        }
-        catch(e)
-        {
-          alert(e);
+          tbl.deleteRow(aRow.parentElement.parentElement.rowIndex);
         }
       }
-    </SCRIPT>
+    </script>
   </head>
 
   <body>
@@ -208,11 +199,5 @@
         </form>
       </div>
     </div>
-
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-    <script src='https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js'></script>
-    <script  src="js/index.js"></script>
   </body>
 </html>
