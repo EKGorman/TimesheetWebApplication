@@ -5,11 +5,8 @@
   if(isset($_POST["submit"]))
   {
     $stmt = $conn -> prepare("UPDATE employee SET password = ? WHERE employeeID = ?");
-
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
     $stmt -> bind_param('si', $password, $_SESSION['EmployeeID']);
-
     $stmt -> execute();
   }
 ?>

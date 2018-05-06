@@ -3,35 +3,71 @@
 
   $employee_id = 74666395;
 
-  if(isset($_POST["submit"]))
+  $startWeek = date('Y-m-d', strtotime('-7 days', strtotime('next Sunday', strtotime(date('Y-m-d')))));
+
+  if(isset($_POST["save"]))
   {
-    $stmt = $conn -> prepare("INSERT INTO time (Date, HoursWorked, ProjectID, EmployeeID) VALUES(?, ?, ?, ?)");
+    $sql = "DELETE FROM time WHERE EmployeeID = $employee_id and Submitted = 0";
+    $conn -> query($sql);
+
+    $stmt = $conn -> prepare("INSERT INTO time (Date, SunHours, MonHours, TuesHours, WedHours, ThursHours, FriHours, SatHours, ProjectID, EmployeeID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt -> bind_param(
-      'sdii',
+      'sdddddddii',
       $date,
-      $contents,
+      $contents0,
+      $contents1,
+      $contents2,
+      $contents3,
+      $contents4,
+      $contents5,
+      $contents6,
       $project,
       $employee_id
     );
 
-    $date = date('Y-m-d', strtotime('-7 days', strtotime('next Sunday', strtotime($_POST["date"]))));
-    echo $date;
-
     $rowNum = count($_POST["project"]);
+    $date = $startWeek;
     for($row = 0; $row < $rowNum; $row++)
     {
       $project = $_POST["project"][$row];
 
       for($col = $row * 7; $col < $row * 7 + 7; $col++)
       {
-        $contents = $_POST["contents"][$col];
-
-        if($contents != 0 && $contents != "")
+        if($col % 7 == 0)
         {
+          $contents0 = $_POST["contents"][$col];
+        }
+        elseif($col % 7 == 1)
+        {
+          $contents1 = $_POST["contents"][$col];
+        }
+        elseif($col % 7 == 2)
+        {
+          $contents2 = $_POST["contents"][$col];
+        }
+        elseif($col % 7 == 3)
+        {
+          $contents3 = $_POST["contents"][$col];
+        }
+        elseif($col % 7 == 4)
+        {
+          $contents4 = $_POST["contents"][$col];
+        }
+        elseif($col % 7 == 5)
+        {
+          $contents5 = $_POST["contents"][$col];
+        }
+        else
+        {
+          $contents6 = $_POST["contents"][$col];
           $stmt->execute();
         }
       }
     }
+  }
+  if(isset($_POST['submit']))
+  {
+    $conn -> query("UPDATE time SET Submitted = 1 WHERE EmployeeID = $employee_id and Submitted = 0");
   }
 ?>
 
@@ -56,7 +92,8 @@
         font-family: sans-serif;
         font-weight: normal;
         white-space: nowrap;
-        padding: 0.5em 1rem;border-bottom: 1px solid gainsboro;
+        padding: 0.5em 1rem;
+        border-bottom: 1px solid gainsboro;
       }
       .other
       {
@@ -68,7 +105,7 @@
       }
     </style>
 
-    <SCRIPT language="javascript">
+    <SCRIPT type="text/javascript">
 
       function addRow(tableID)
       {
@@ -89,35 +126,22 @@
         }
       }
 
-      /*function deleteRow(tableID)
+      function deleteRow(aRow)
       {
         try
         {
-          var table = document.getElementById(tableID);
-          var rowCount = table.rows.length;
-
-          for(var i=0; i<rowCount; i++)
+          var tbl = document.getElementById('dataTable')
+          var lastRow = tbl.rows.length;
+          if(lastRow > 2)
           {
-            var row = table.rows[i];
-            var chkbox = row.cells[0].childNodes[0];
-            if(null != chkbox && true == chkbox.checked)
-            {
-              if(rowCount <= 1)
-              {
-                alert("Cannot delete all the rows.");
-                break;
-              }
-              table.deleteRow(i);
-              rowCount--;
-              i--;
-            }
+            tbl.deleteRow(aRow.parentElement.parentElement.rowIndex);
           }
         }
         catch(e)
         {
           alert(e);
         }
-      }*/
+      }
     </SCRIPT>
   </head>
 
@@ -128,33 +152,55 @@
       <br>
       <div id="table" class="table-editable">
         <form method="post">
-          <p>Week Start Date: <input type="date" name="date"> </p>
           <table id="dataTable" class="table table-fixed">
             <thead>
               <tr>
-                <th><b>Project ID</b></th>
-                <th><b>Sunday</b></th>
-                <th><b>Monday</b></th>
-                <th><b>Tuesday</b></th>
-                <th><b>Wednesday</b></th>
-                <th><b>Thursday</b></th>
-                <th><b>Friday</b></th>
-                <th><b>Saturday</b></th>
+                <th>Date</th>
+                <th>Project ID</th>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
                 <th><span class="table-add glyphicon glyphicon-plus" name="add" onclick="addRow('dataTable')"></span></th>
               </tr>
             </thead>
 
-            <tr>
-              <td>Project ID:<input type="number" name="project[]" placeholder="Example: 001" required></td>
+            <?php
+              $sql = "SELECT Date, SunHours, MonHours, TuesHours, WedHours, ThursHours, FriHours, SatHours, ProjectID FROM time WHERE EmployeeID = $employee_id and Submitted = 0";
+              $results = mysqli_query($conn, $sql);
 
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" name="contents[]"></td>
-              <!--<td><span class="table-remove glyphicon glyphicon-remove"></span></td>-->
+              while ($row = mysqli_fetch_array($results))
+              {
+
+                echo "<tr>";
+                echo "<td>Date:<input type=\"date\" name=\"date[]\" value='". $row['Date'] . "' required></td>";
+                echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" value='" . $row['ProjectID'] . "' required></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SunHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['MonHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['TuesHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['WedHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['ThursHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['FriHours'] . "'></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SatHours'] . "'></td>";
+                echo "<td><input type=\"button\" value=\"Delete Row\" name=\"delete[]\" onClick=\"deleteRow(this)\"></span></td>";
+                echo "</tr>";
+              }
+            ?>
+
+            <tr>
+              <td>Date:<input type="date" name="date[]" value="<?php echo $startWeek ?>" required></td>
+              <td>Project ID:<input type="number" name="project[]" placeholder="Example: 001" required></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
+              <td><input type="button" value="Delete Row" name="delete[]" onClick="deleteRow(this)"></span></td>
             </tr>
           </table>
           <button id="export-btn" class="btn btn-primary" type="submit" name="submit" style="float: right;">Submit Timesheet</button>
