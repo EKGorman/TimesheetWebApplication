@@ -131,6 +131,9 @@
         {
           tbl.deleteRow(aRow.parentElement.parentElement.rowIndex);
         }
+        else {
+          alert("Cannot remove all");
+        }
       }
     </script>
   </head>
@@ -162,36 +165,41 @@
               $sql = "SELECT Date, SunHours, MonHours, TuesHours, WedHours, ThursHours, FriHours, SatHours, ProjectID FROM time WHERE EmployeeID = $employee_id and Submitted = 0";
               $results = mysqli_query($conn, $sql);
 
-              while ($row = mysqli_fetch_array($results))
+              if($results == null)
               {
-
                 echo "<tr>";
-                echo "<td>Date:<input type=\"date\" name=\"date[]\" value='". $row['Date'] . "' required></td>";
-                echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" value='" . $row['ProjectID'] . "' required></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SunHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['MonHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['TuesHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['WedHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['ThursHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['FriHours'] . "'></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SatHours'] . "'></td>";
-                echo "<td><input type=\"button\" value=\"Delete Row\" name=\"delete[]\" onClick=\"deleteRow(this)\"></span></td>";
+                echo "<td>Date:<input type=\"date\" name=\"date[]\" required></td>";
+                echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" required></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td><button name=\"delete[]\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
                 echo "</tr>";
               }
-            ?>
+              else
+              {
+                while ($row = mysqli_fetch_array($results))
+                {
 
-            <tr>
-              <td>Date:<input type="date" name="date[]" value="<?php echo $startWeek ?>" required></td>
-              <td>Project ID:<input type="number" name="project[]" placeholder="Example: 001" required></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td>Hours Worked:<input type="number" step="any" min="0" class="hours" name="contents[]"></td>
-              <td><input type="button" value="Delete Row" name="delete[]" onClick="deleteRow(this)"></span></td>
-            </tr>
+                  echo "<tr>";
+                  echo "<td>Date:<input type=\"date\" name=\"date[]\" value='". $row['Date'] . "' required></td>";
+                  echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" value='" . $row['ProjectID'] . "' required></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SunHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['MonHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['TuesHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['WedHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['ThursHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['FriHours'] . "'></td>";
+                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SatHours'] . "'></td>";
+                  echo "<td><button name=\"delete[]\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
+                  echo "</tr>";
+                }
+              }
+            ?>
           </table>
           <button id="export-btn" class="btn btn-primary" type="submit" name="submit" style="float: right;">Submit Timesheet</button>
           <button id="export-btn" class="btn btn-primary" type="submit" name="save" style="float: left;">Save Timesheet</button>
