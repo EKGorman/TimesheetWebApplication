@@ -105,7 +105,25 @@
 					<li>
 						<label class="description">Manager ID*</label>
 						<div>
-							<input name="managerID" class="text medium" type="text" maxlength="255" value="<?php echo $managerID; ?>" required>
+							<select name="managerID" class="select medium" required>
+                <option value="" selected="selected"></option>
+                <?php
+                  $sql = "SELECT EmployeeID, FName, LName FROM Employee WHERE AccessLevel = 1 OR AccessLevel = 2";
+                  $results = mysqli_query($conn, $sql);
+
+                  while ($row = mysqli_fetch_array($results))
+                  {
+                    if($managerID == $row['EmployeeID'])
+                    {
+                      echo "<option selected value='" . $row['EmployeeID'] . "'>" . $row['FName'] . " " . $row['LName'] . "</option>";
+                    }
+                    else
+                    {
+                      echo "<option value='" . $row['EmployeeID'] . "'>" . $row['FName'] . " " . $row['LName'] . "</option>";
+                    }
+                  }
+                ?>
+              </select>
 						</div> <p class="guidelines"><small>requried</small></p>
 					</li>
 

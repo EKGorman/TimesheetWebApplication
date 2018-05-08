@@ -58,7 +58,7 @@
 						<label class="description">Project Name*</label>
 						<div>
 							<input name="projectName" class="text medium" type="text" maxlength="255" required>
-						</div>
+						</div> <p class="guidelines"><small>requried</small></p>
 					</li>
 
 					<li>
@@ -77,13 +77,25 @@
                   }
                 ?>
               </select>
-						</div>
+						</div> <p class="guidelines"><small>requried</small></p>
 					</li>
 
 					<li>
 						<label class="description">Manager ID*</label>
 						<div>
-							<input name="managerID" class="text medium" type="text" maxlength="255" required>
+							<select name="managerID" class="select medium" required>
+                <option value="" selected="selected"></option>
+                <?php
+                  $sql = "SELECT EmployeeID, FName, LName FROM Employee WHERE AccessLevel = 1 OR AccessLevel = 2";
+                  $results = mysqli_query($conn, $sql);
+                  $count = 1;
+
+                  while ($row = mysqli_fetch_array($results))
+                  {
+                    echo "<option value='" . $row['EmployeeID'] . "'>" . $row['FName'] . " " . $row['LName'] . "</option>";
+                  }
+                ?>
+              </select>
 						</div> <p class="guidelines"><small>requried</small></p>
 					</li>
 
