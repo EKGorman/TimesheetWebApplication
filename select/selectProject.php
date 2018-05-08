@@ -6,7 +6,7 @@
   if(isset($_POST['submit']))
   {
     $_SESSION['updateProject'] = $_POST['tempID'];
-    redirect("../updateProject/updateProject.php");
+    redirect("../add-update/update/updateProject.php");
   }
 ?>
 
