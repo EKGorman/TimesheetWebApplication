@@ -1,7 +1,12 @@
 <?php
-	session_start();
 	include '../../config.php';
 	include '../../redirect.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
 
 	$company_id = $_SESSION['updateCompany'];
 

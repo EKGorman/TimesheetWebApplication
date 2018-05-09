@@ -1,3 +1,15 @@
+<?php
+  include '../config.php';
+  include '../redirect.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +19,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link  rel="stylesheet" href="SuperStyle.css"/>
+  <link  rel="stylesheet" href="css/superStyle.css"/>
 
   <title>WFD TimeSheet App</title>
 
@@ -18,18 +30,22 @@
 	<div class="container">
  		<div class="major" id="big">
     		<p id="bigP">Timesheet</p>
-    		<a href="../timesheet/timesheet.php" class="link"></a>	-->
-    	<!--	<iframe class="timeEditor" id="frame" src="TimeEditor/index5.html"></iframe> -->
+    		<a href="../timesheet/timesheet.php" class="link"></a>
    		</div>
 
-    	<div class="major" id="tall">
+      <div class="major" id="rightTop">
+    		<p id="tallP">Approve Time</p>
+   	 		<a href="../approveTime/approveTime.php" class="link"></a>
+    	</div>
+
+    	<div class="major" id="rightBottom">
     		<p id="tallP">Reset Password</p>
    	 		<a href="../resetPassword/resetPassword.php" class="link"></a>
     	</div>
 
    		<div class="major" id="left">
     		<p id="leftP">Add Employee</p>
-    		<a href="../addEmployee/addEmployee.php" class="link"></a>
+    		<a href="../add-update/add/addEmployee.php" class="link"></a>
     	</div>
 
     	<div class="major" id="right">
@@ -39,7 +55,7 @@
 
     	<div class="major" id="aleft">
     		<p id="aleftP">Add Project</p>
-    		<a href="../addProject/addProject.php" class="link"></a>
+    		<a href="../add-update/add/addProject.php" class="link"></a>
     	</div>
 
     	<div class="major" id="aright">
@@ -49,7 +65,7 @@
 
     	<div class="major" id="bleft">
     		<p id="bleftP">Add Company</p>
-    		<a href="../addCompany/addCompany.php" class="link"></a>
+    		<a href="../add-update/add/addCompany.php" class="link"></a>
     	</div>
 
     	<div class="major" id="bright">

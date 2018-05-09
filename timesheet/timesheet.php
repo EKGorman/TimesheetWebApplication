@@ -1,7 +1,14 @@
 <?php
   include '../config.php';
+  include '../redirect.php';
+  session_start();
 
-  $employee_id = 74666395;
+  if($_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
+
+  $employee_id = $_SESSION['EmployeeID'];
 
   $startWeek = date('Y-m-d', strtotime('-7 days', strtotime('next Sunday', strtotime(date('Y-m-d')))));
 

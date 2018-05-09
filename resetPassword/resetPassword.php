@@ -1,13 +1,51 @@
 <?php
   include '../config.php';
+  include '../redirect.php';
   session_start();
+
+  if($_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
+
+  $err="";
 
   if(isset($_POST["submit"]))
   {
-    $stmt = $conn -> prepare("UPDATE employee SET password = ? WHERE employeeID = ?");
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $stmt -> bind_param('si', $password, $_SESSION['EmployeeID']);
+    $username = $_POST["username"];
+    $pass = $_POST["currentPassword"];
+
+    $stmt = $conn -> prepare("SELECT EmployeeID, Password
+                              FROM employee
+                              WHERE EmployeeID = ?");
+    $stmt -> bind_param("s", $username);
     $stmt -> execute();
+    $stmt -> bind_result($employee_id, $password);
+    $stmt -> store_result();
+
+    if($stmt -> num_rows == 1)
+    {
+      if($stmt -> fetch())
+      {
+        if(password_verify($pass, $password))
+        {
+          $stmt -> close();
+        	$conn -> next_result();
+          $stmt = $conn -> prepare("UPDATE employee SET password = ? WHERE employeeID = ?");
+          $password = password_hash($_POST["newPassword"], PASSWORD_DEFAULT);
+          $stmt -> bind_param('si', $password, $_POST['username']);
+          $stmt -> execute();
+        }
+        else
+        {
+          $err = "Username or password is invalid.";
+        }
+      }
+    }
+    else
+    {
+      $err = "Username or password is invalid.";
+    }
   }
 ?>
 
@@ -37,15 +75,33 @@
 
         <div class="container">
           <form action="/action_page.php">
-            <label for="usrname">Username:</label>
-            <input type="text" id="usrname" name="usrname" required >
+            <input type="text" name="username" placeholder="Username" required >
             <br>
 
-            <label for="psw">Password:</label>
-            <input type="password" id="psw" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="password" name="currentPassword" placeholder="Current Password" required>
             <br>
 
-            <input type="submit" name="submit" value="Submit">
+            <input type="password" id="psw" name="newPassword" placeholder="New Password" required>
+            <br>
+
+            <input type="password" id="psw2" name="newPassword2" placeholder="Retype New Password" required>
+            <br>
+
+            <input type="submit" id="button" disabled="true" name="submit" value="Submit">
+            <br>
+
+            <span>
+  						<?php
+                if($err == "")
+                {
+                  echo "<br>";
+                }
+                else
+                {
+                  echo $err;
+                }
+              ?>
+  					</span>
 
           </form>
         </div>
@@ -56,6 +112,7 @@
           <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
           <p id="number" class="invalid">A <b>number</b></p>
           <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+          <p id="same" class="invalid">Same <b>password</b></p>
         </div>
 
         <script>
@@ -64,6 +121,8 @@
         var capital = document.getElementById("capital");
         var number = document.getElementById("number");
         var length = document.getElementById("length");
+        var myInput2 = document.getElementById("psw2")
+        var button = document.getElementById("button");
 
         // When the user clicks on the password field, show the message box
         myInput.onfocus = function()
@@ -73,6 +132,17 @@
 
         // When the user clicks outside of the password field, hide the message box
         myInput.onblur = function()
+        {
+          document.getElementById("message").style.display = "none";
+        }
+
+        myInput2.onfocus = function()
+        {
+          document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput2.onblur = function()
         {
           document.getElementById("message").style.display = "none";
         }
@@ -129,6 +199,49 @@
           {
             length.classList.remove("valid");
             length.classList.add("invalid");
+          }
+
+          if(myInput.value == myInput2.value)
+          {
+            same.classList.remove("invalid");
+            same.classList.add("valid");
+          }
+          else
+          {
+            same.classList.remove("valid");
+            same.classList.add("invalid");
+          }
+
+          if(letter.classList == "invalid" || capital.classList == "invalid" || number.classList == "invalid" || length.classList == "invalid" || same.classList == "invalid")
+          {
+            button.disabled = true;
+          }
+          else
+          {
+            button.disabled = false;
+          }
+        }
+
+        myInput2.onkeyup = function()
+        {
+          if(myInput.value == myInput2.value)
+          {
+            same.classList.remove("invalid");
+            same.classList.add("valid");
+          }
+          else
+          {
+            same.classList.remove("valid");
+            same.classList.add("invalid");
+          }
+
+          if(letter.classList == "invalid" || capital.classList == "invalid" || number.classList == "invalid" || length.classList == "invalid" || same.classList == "invalid")
+          {
+            button.disabled = true;
+          }
+          else
+          {
+            button.disabled = false;
           }
         }
         </script>

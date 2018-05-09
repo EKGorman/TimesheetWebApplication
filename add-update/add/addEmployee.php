@@ -1,6 +1,13 @@
 <?php
   include '../../config.php';
+  include '../../redirect.php';
   include '../../generateID.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
 
   $employee_id = generateID("EmployeeID", "employee", 10000000, 99999999);
 

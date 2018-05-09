@@ -1,3 +1,15 @@
+<?php
+  include '../config.php';
+  include '../redirect.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 3 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +19,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link  rel="stylesheet" href="Style.css"/>
+  <link  rel="stylesheet" href="css/userStyle.css"/>
 
   <title>WFD TimeSheet App</title>
 </head>
@@ -23,16 +35,6 @@
     	<div class="major" id="tall">
     		<p id="tallP">Reset Password</p>
    	 		<a href="../resetPassword/resetPassword.php" class="link"></a>
-    	</div>
-
-   		<div class="major" id="left">
-    		<p id="leftP">Currently Unused</p>
-    	<!--	<a href="addProject/form.html" class="link"></a>	-->
-    	</div>
-
-    	<div class="major" id="right">
-    		<p id="rightP">Currently Unused</p>
-    	<!--	<a href="addProject/form.html" class="link"></a>	-->
     	</div>
     </div>
 </body>

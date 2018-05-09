@@ -1,6 +1,13 @@
 <?php
   include '../../config.php';
+  include '../../redirect.php';
   include '../../generateID.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
 
 	$project_id = generateID("ProjectID", "project", 1000, 9999);
 

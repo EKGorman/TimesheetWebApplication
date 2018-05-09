@@ -1,7 +1,12 @@
 <?php
-	session_start();
 	include '../../config.php';
-	include '../../redirect.php';
+	include '../redirect.php';
+  session_start();
+
+  if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
+  {
+    redirect("../login/login.php");
+  }
 
 	$employee_id = $_SESSION['updateEmployee'];
 
@@ -20,33 +25,68 @@
 
 	if(isset($_POST["submit"]))
   {
-		$stmt = $conn -> prepare("UPDATE employee SET FName = ?, LName = ?, PhoneNum = ?, Email = ?, StreetAddress = ?, AddressLine2 = ?, City = ?, State = ?, ZipCode = ?, PayScale = ?, AccessLevel = ?, CompanyID = ? WHERE employeeID = ?");
-
-		$phone = $_POST["phone_1"].$_POST["phone_2"].$_POST["phone_3"];
-
-    $stmt -> bind_param(
-			'sssssssssdiii',
-			$_POST["firstName"],
-			$_POST["lastName"],
-			$phone,
-			$_POST["email"],
-      $_POST["streetAddress"],
-      $_POST["streetAddress2"],
-      $_POST["city"],
-      $_POST["state"],
-      $_POST["zip"],
-      $_POST["payScale"],
-      $_POST["accessLevel"],
-      $_POST["company"],
-			$employee_id);
-
-    if($stmt -> execute() === TRUE)
+		if($_POST["password"] != "")
 		{
-			redirect("updateEmployee.php");
+			$stmt = $conn -> prepare("UPDATE employee SET FName = ?, LName = ?, PhoneNum = ?, Email = ?, StreetAddress = ?, AddressLine2 = ?, City = ?, State = ?, ZipCode = ?, PayScale = ?, AccessLevel = ?, Password = ? WHERE employeeID = ?");
+
+			$phone = $_POST["phone_1"].$_POST["phone_2"].$_POST["phone_3"];
+			$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+	    $stmt -> bind_param(
+				'sssssssssdisi',
+				$_POST["firstName"],
+				$_POST["lastName"],
+				$phone,
+				$_POST["email"],
+	      $_POST["streetAddress"],
+	      $_POST["streetAddress2"],
+	      $_POST["city"],
+	      $_POST["state"],
+	      $_POST["zip"],
+	      $_POST["payScale"],
+	      $_POST["accessLevel"],
+				$password,
+				$employee_id);
+
+	    if($stmt -> execute() === TRUE)
+			{
+				redirect("updateEmployee.php");
+			}
+			else
+			{
+				echo "Error updating record: " . $conn->error;
+			}
 		}
 		else
 		{
-			echo "Error updating record: " . $conn->error;
+			$stmt = $conn -> prepare("UPDATE employee SET FName = ?, LName = ?, PhoneNum = ?, Email = ?, StreetAddress = ?, AddressLine2 = ?, City = ?, State = ?, ZipCode = ?, PayScale = ?, AccessLevel = ?, CompanyID = ? WHERE employeeID = ?");
+
+			$phone = $_POST["phone_1"].$_POST["phone_2"].$_POST["phone_3"];
+
+	    $stmt -> bind_param(
+				'sssssssssdiii',
+				$_POST["firstName"],
+				$_POST["lastName"],
+				$phone,
+				$_POST["email"],
+	      $_POST["streetAddress"],
+	      $_POST["streetAddress2"],
+	      $_POST["city"],
+	      $_POST["state"],
+	      $_POST["zip"],
+	      $_POST["payScale"],
+	      $_POST["accessLevel"],
+	      $_POST["company"],
+				$employee_id);
+
+	    if($stmt -> execute() === TRUE)
+			{
+				redirect("updateEmployee.php");
+			}
+			else
+			{
+				echo "Error updating record: " . $conn->error;
+			}
 		}
   }
 ?>

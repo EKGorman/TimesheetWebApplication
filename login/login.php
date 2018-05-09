@@ -11,12 +11,12 @@
 			$username = $_POST["username"];
 			$pass = $_POST["pass"];
 
-			$stmt = $conn -> prepare("SELECT EmployeeID, Password
+			$stmt = $conn -> prepare("SELECT EmployeeID, Password, AccessLevel
 																FROM employee
 																WHERE EmployeeID = ?");
 			$stmt -> bind_param("s", $username);
 			$stmt -> execute();
-			$stmt -> bind_result($employee_id, $password);
+			$stmt -> bind_result($employee_id, $password, $accessLevel);
 			$stmt -> store_result();
 
 			if($stmt -> num_rows == 1)
@@ -28,7 +28,19 @@
 						session_start();
 						$_SESSION['loggedIn'] = true;
 						$_SESSION['EmployeeID'] = $username;
-						redirect("../resetPassword/resetPassword.php");
+						$_SESSION['AccessLevel'] = $accessLevel;
+						if($accessLevel == 1)
+						{
+							redirect("../home/superPanel.php");
+						}
+						elseif($accessLevel == 2)
+						{
+							redirect("../home/adminPanel.php");
+						}
+						else
+						{
+							redirect("../home/userPanel.php");
+						}
 					}
 					else
 					{
