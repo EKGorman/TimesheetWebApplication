@@ -138,7 +138,7 @@
 
   <body>
 
-    <img id="top" src="../add-update/images/top.png" alt="">
+    <img id="top" src="images/top.png" alt="">
     <div id="form_container">
 
       <h1><a></a></h1>
@@ -216,6 +216,7 @@
       </form>
 
     </div>
+    <img id="bottom" src="images/bottom.png" alt="">
 
   </body>
 
