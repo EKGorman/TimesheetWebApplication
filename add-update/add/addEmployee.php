@@ -52,7 +52,7 @@
 
 			<h1><a></a></h1>
 
-			<form class="appnitro"  method="post" action="" target="">
+			<form class="appnitro"  method="post" action="">
 
 				<div class="form_description">
 					<h2>Add Employee</h2>

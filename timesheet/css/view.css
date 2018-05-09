@@ -1,0 +1,182 @@
+body
+{
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:small;
+	margin:8px 0 16px;
+	text-align:center;
+}
+
+#form_container
+{
+	border:1px solid #ccc;
+	margin:0 auto;
+	text-align:left;
+	width: 95%;
+	min-width: 1200px;
+}
+
+#top
+{
+	display:block;
+	height:10px;
+	margin:10px auto 0;
+	width: 95%;
+	min-width: 1200px;
+}
+
+
+#bottom
+{
+	display:block;
+	height:10px;
+	margin: auto;
+	width: 95%;
+	min-width:1200px;
+}
+
+form.appnitro
+{
+	margin:20px 20px 0;
+	padding:0 0 20px;
+}
+
+/**** Logo Section  *****/
+h1
+{
+	background-color:#dedede;
+	margin:0;
+	text-indent:-8000px;
+
+}
+
+h1 a
+{
+
+	display:block;
+	height:100%;
+	min-height:40px;
+	overflow:hidden;
+}
+
+
+
+
+/**** Form Section ****/
+.appnitro
+{
+	font-size:small;
+}
+
+.buttons
+{
+	clear:both;
+	display:block;
+	margin-top:10px;
+}
+
+.form_description
+{
+	border-bottom:1px dotted #ccc;
+	clear:both;
+	display:inline-block;
+	margin:0 0 1em;
+}
+
+.form_description[class]
+{
+	display:block;
+}
+
+.form_description h2
+{
+	clear:left;
+	font-size:160%;
+	font-weight:400;
+	margin:0 0 3px;
+}
+
+table
+{
+	width: 100%;
+}
+
+thead
+{
+	background-color:#dedede;
+}
+
+/**** Buttons ****/
+.buttons input
+{
+	font-size:120%;
+	margin-right:5px;
+}
+
+#submit
+{
+	margin-left: 50px;
+}
+
+/**** Inputs and Labels ****/
+#date
+{
+	width: 12%;
+}
+
+#project
+{
+	width: 10%;
+}
+
+.time
+{
+	width: 10%;
+}
+
+input.dateValue
+{
+	background:#fff url(../../add-update/images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+	color:#333;
+	font-size:125%;
+	margin:0;
+	padding:2px 0;
+	height: 16px;
+	width: 15%;
+	min-width: 125px;
+}
+
+input.projectValue
+{
+	background:#fff url(../../add-update/images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+	color:#333;
+	font-size:100%;
+	margin:0;
+	padding:2px 0;
+	height: 16px;
+	width: 9%;
+	min-width: 100px;
+}
+
+input.timeValue
+{
+	background:#fff url(../../add-update/images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+	color:#333;
+	font-size:100%;
+	margin:0;
+	padding:2px 0;
+	height: 16px;
+	width: 9%;
+	min-width: 75px;
+}

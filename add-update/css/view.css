@@ -221,13 +221,6 @@ form hr
 }
 
 /**** Buttons ****/
-input.button_text
-{
-	overflow:visible;
-	padding:0 7px;
-	width:auto;
-}
-
 .buttons input
 {
 	font-size:120%;

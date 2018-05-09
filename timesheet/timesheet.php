@@ -79,28 +79,7 @@
     <meta charset="UTF-8">
     <title>timesheetApp</title>
 
-    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-      h1
-      {
-        color: dimgrey;
-        font-family: sans-serif;
-        font-weight: normal;
-        white-space: nowrap;
-        padding: 0.5em 1rem;
-        border-bottom: 1px solid gainsboro;
-      }
-      .other
-      {
-        background-color: #FFF8DC;
-      }
-      #other
-      {
-        background-color: #FFF8DC;
-      }
-    </style>
+    <link rel="stylesheet" href="css/view.css">
 
     <script type="text/javascript">
 
@@ -111,16 +90,35 @@
         var rowCount = table.rows.length;
         var row = table.insertRow(rowCount);
 
-        var colCount = table.rows[1].cells.length;
+        var dateCell = row.insertCell(0);
+        dateCell.innerHTML = "Date:<input class=\"dateValue\" type=\"date\" name=\"date[]\" required>";
 
-        for(var i=0; i<colCount; i++)
-        {
-          var newcell	= row.insertCell(i);
+        var projectCell = row.insertCell(1);
+        projectCell.innerHTML = "Project ID:<br><input class=\"projectValue\" class=\"number\" type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" required>";
 
-          newcell.innerHTML = table.rows[1].cells[i].innerHTML;
-          //alert(newcell.childNodes);
-          newcell.childNodes[1].value = "";
-        }
+        var timeCell1 = row.insertCell(2);
+        timeCell1.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell2 = row.insertCell(3);
+        timeCell2.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell3 = row.insertCell(4);
+        timeCell3.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell4 = row.insertCell(5);
+        timeCell4.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell5 = row.insertCell(6);
+        timeCell5.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell6 = row.insertCell(7);
+        timeCell6.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var timeCell7 = row.insertCell(8);
+        timeCell7.innerHTML = "Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\">";
+
+        var deleteCell = row.insertCell(9);
+        deleteCell.innerHTML = "<button name=\"delete\" onClick=\"deleteRow(this)\">Delete Row</button>";
       }
 
       function deleteRow(aRow)
@@ -139,25 +137,32 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>TimeSheet</h1>
-      <br>
-      <br>
-      <div id="table" class="table-editable">
-        <form method="post">
-          <table id="dataTable" class="table table-fixed">
+
+    <img id="top" src="../add-update/images/top.png" alt="">
+    <div id="form_container">
+
+      <h1><a></a></h1>
+
+      <form class="appnitro" method="post" action="">
+
+        <div class="form_description">
+          <h2>TimeSheet</h2>
+        </div>
+
+        <div>
+          <table id="dataTable" cellpadding="10px" cellspacing="0">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Project ID</th>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th><span class="table-add glyphicon glyphicon-plus" name="add" onclick="addRow('dataTable')"></span></th>
+                <th id="date">Date</th>
+                <th id="project">Project ID</th>
+                <th class="time">Sunday</th>
+                <th class="time">Monday</th>
+                <th class="time">Tuesday</th>
+                <th class="time">Wednesday</th>
+                <th class="time">Thursday</th>
+                <th class="time">Friday</th>
+                <th class="time">Saturday</th>
+                <th><button name="add" onclick="addRow('dataTable')">Add Row</button></th>
               </tr>
             </thead>
 
@@ -168,43 +173,50 @@
               if($results == null)
               {
                 echo "<tr>";
-                echo "<td>Date:<input type=\"date\" name=\"date[]\" required></td>";
-                echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" required></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
-                echo "<td><button name=\"delete[]\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
+                echo "<td>Date:<br><input class=\"dateValue\" type=\"date\" name=\"date[]\" required></td>";
+                echo "<td>Project ID:<br><input class=\"projectValue\" class=\"number\" type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" required></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\"></td>";
+                echo "<td><button name=\"delete\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
                 echo "</tr>";
               }
               else
               {
                 while ($row = mysqli_fetch_array($results))
                 {
-
                   echo "<tr>";
-                  echo "<td>Date:<input type=\"date\" name=\"date[]\" value='". $row['Date'] . "' required></td>";
-                  echo "<td>Project ID:<input type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" value='" . $row['ProjectID'] . "' required></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SunHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['MonHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['TuesHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['WedHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['ThursHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['FriHours'] . "'></td>";
-                  echo "<td>Hours Worked:<input type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SatHours'] . "'></td>";
-                  echo "<td><button name=\"delete[]\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
+                  echo "<td>Date:<br><input class=\"dateValue\" type=\"date\" name=\"date[]\" value='". $row['Date'] . "' required></td>";
+                  echo "<td>Project ID:<br><input class=\"projectValue\" type=\"number\" name=\"project[]\" placeholder=\"Example: 001\" value='" . $row['ProjectID'] . "' required></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SunHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['MonHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['TuesHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['WedHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['ThursHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\" type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['FriHours'] . "'></td>";
+                  echo "<td>Hours Worked:<br><input class=\"timeValue\"   type=\"number\" step=\"any\" min=\"0\" class=\"hours\" name=\"contents[]\" value='" . $row['SatHours'] . "'></td>";
+                  echo "<td><button name=\"delete\" onClick=\"deleteRow(this)\">Delete Row</button></td>";
                   echo "</tr>";
                 }
               }
             ?>
           </table>
-          <button id="export-btn" class="btn btn-primary" type="submit" name="submit" style="float: right;">Submit Timesheet</button>
-          <button id="export-btn" class="btn btn-primary" type="submit" name="save" style="float: left;">Save Timesheet</button>
-        </form>
-      </div>
+
+          <li class="buttons">
+            <button type="submit" name="save">Save Timesheet</button>
+            <button id="submit" type="submit" name="submit">Submit Timesheet</button>
+          </li>
+
+        </div>
+
+      </form>
+
     </div>
+
   </body>
+
 </html>
