@@ -1,6 +1,6 @@
 <?php
   include '../../config.php';
-  include '../redirect.php';
+  include '../../redirect.php';
   session_start();
 
   if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)

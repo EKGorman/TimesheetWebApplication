@@ -15,62 +15,75 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Reports</title>
+    <title>Search</title>
 
     <link rel="stylesheet" type="text/css" href="report.css" media="all">
+    <link rel="stylesheet" type="text/css" href="view.css" media="all">
   </head>
 
   <body>
 
-    <h1>Project Reports</h1>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Project Name...">
+    <img id="top" src="images/top.png">
+    <div id="form_container">
 
-    <table id="myTable">
-      <tr class="header">
-        <th style="width:40%;">Project ID</th>
-        <th style="width:60%;">Project Name</th>
-        <th style="width:40%;"></th>
-      </tr>
+      <h1><a></a></h1>
 
-      <?php
-        $sql = "SELECT ProjectID, ProjectName FROM project";
-        $results = mysqli_query($conn, $sql);
+      <form class="appnitro" method="post">
 
-        while ($row = mysqli_fetch_array($results))
+        <div class="form_description">
+          <h2>Search Projects</h2>
+        </div>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Project Name...">
+
+        <table id="myTable">
+          <tr class="header">
+            <th style="width:40%;">Project ID</th>
+            <th style="width:60%;">Project Name</th>
+            <th style="width:40%;"></th>
+          </tr>
+
+          <?php
+            $sql = "SELECT ProjectID, ProjectName FROM project";
+            $results = mysqli_query($conn, $sql);
+
+            while ($row = mysqli_fetch_array($results))
+            {
+              echo "<tr>";
+              echo "<td>" . $row['ProjectID'] . "</td>";
+              echo "<td>" . $row['ProjectName'] . "</td>";
+              echo "<td><form method='POST'><input type='hidden' name='tempID' value='" . $row['ProjectID'] . "' /><input type='submit' name='submit' value='Update' /></form></td>";
+              echo "</tr>";
+            }
+          ?>
+        </table>
+
+        <script>
+        function myFunction()
         {
-          echo "<tr>";
-          echo "<td>" . $row['ProjectID'] . "</td>";
-          echo "<td>" . $row['ProjectName'] . "</td>";
-          echo "<td><form method='POST'><input type='hidden' name='tempID' value='" . $row['ProjectID'] . "' /><input type='submit' name='submit' value='Update' /></form></td>";
-          echo "</tr>";
-        }
-      ?>
-    </table>
-
-    <script>
-    function myFunction()
-    {
-      var input, filter, table, tr, td, i;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++)
-      {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td)
-        {
-          if (td.innerHTML.toUpperCase().indexOf(filter) > -1)
+          var input, filter, table, tr, td, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++)
           {
-            tr[i].style.display = "";
-          }
-          else
-          {
-            tr[i].style.display = "none";
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td)
+            {
+              if (td.innerHTML.toUpperCase().indexOf(filter) > -1)
+              {
+                tr[i].style.display = "";
+              }
+              else
+              {
+                tr[i].style.display = "none";
+              }
+            }
           }
         }
-      }
-    }
-    </script>
+        </script>
+      </form>
+    </div>
+    <img id="bottom" src="images/bottom.png">
   </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 	include '../../config.php';
-	include '../redirect.php';
+	include '../../redirect.php';
   session_start();
 
   if($_SESSION['AccessLevel'] != 1 || $_SESSION['loggedIn'] != true)
@@ -10,10 +10,10 @@
 
 	$employee_id = $_SESSION['updateEmployee'];
 
-	$stmt = $conn -> prepare("SELECT FName, LName, PhoneNum, Email, StreetAddress, AddressLine2, City, State, ZipCode, PayScale, AccessLevel, CompanyID FROM employee WHERE EmployeeID = ?");
+	$stmt = $conn -> prepare("SELECT FName, LName, PhoneNum, Email, StreetAddress, AddressLine2, City, State, ZipCode, PayScale, AccessLevel FROM employee WHERE EmployeeID = ?");
 	$stmt -> bind_param('i', $employee_id);
 	$stmt -> execute();
-	$stmt -> bind_result($firstName, $lastName, $phoneNum, $email, $streetAddress, $streetAddress2, $city, $state, $zip, $payScale, $accessLevel, $company);
+	$stmt -> bind_result($firstName, $lastName, $phoneNum, $email, $streetAddress, $streetAddress2, $city, $state, $zip, $payScale, $accessLevel);
 	$stmt -> fetch();
 
 	$phone_1 = substr($phoneNum, 0, 3);
